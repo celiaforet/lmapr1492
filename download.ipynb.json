@@ -11,7 +11,7 @@
     "with MPRester(\"Jqka7RaOKJvTC6iABC\") as m:\n",
     "    struct = m.get_structure_by_material_id(\"mp-9368\")\n",
     "    wr = CifWriter(struct)\n",
-    "    wr.write_file('mp9368.cif')"
+    "    wr.write_file('RbTmS2_mp-9368_symmetrized.cif')"
    ]
   }
  ],
