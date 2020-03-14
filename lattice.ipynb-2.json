@@ -1,0 +1,70 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from pymatgen.ext.matproj import MPRester\n",
+    "from pymatgen.io.cif import CifWriter\n",
+    "with MPRester(\"Jqka7RaOKJvTC6iABC\") as me:    \n",
+    "    # Structure for material id\n",
+    "    struct = me.get_structure_by_material_id(\"mp-9368\")\n",
+    "    \n",
+    "    # Téléchargement du fichier CIF\n",
+    "    file = CifWriter(struct) \n",
+    "    file.write_file('RbTmS2.cif')\n",
+    "    \n",
+    "    print(\"Structure :\",struct)\n",
+    "    \n",
+    "    # Coordonnées des vecteurs de base du réseau direct\n",
+    "    latt = Lattice.rhombohedral(8.014,29.102)\n",
+    "    print(\"Coordonnées des vecteurs du réseau direct :\",latt)\n",
+    "    \n",
+    "    # Vecteurs a, b et c du réseau direct\n",
+    "    dirvect=latt.lengths\n",
+    "    print(\"Vecteurs a, b, c du réseau direct :\",dirvect)\n",
+    "    \n",
+    "    # Vecteurs de base du réseau réciproque\n",
+    "    recilatt= latt.reciprocal_lattice\n",
+    "    print(\"Coordonnées des vecteurs du réseau réciproque :\",recilatt)\n",
+    "    \n",
+    "    # Vecteurs a*, b* et c* du réseau réciproque\n",
+    "    recivect= recilatt.lengths\n",
+    "    print(\"Vecteurs a*, b* et c* du réseau réciproque :\",recivect)\n",
+    "    \n",
+    "    # Type de maille\n",
+    "    stru=span.SpacegroupAnalyzer(structure)\n",
+    "    print(\"Type de maille du matériau :\",struct.get_lattice_type())\n",
+    "    \n",
+    "    # Système cristallin \n",
+    "    print(\"Système cristallin du matériau :\",struct.get_crystal_system())\n",
+    "    \n",
+    "    # Groupe ponctuel\n",
+    "    print(\"Groupe ponctuel du matériau :\",struct.get_space_group_symbol())\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
